@@ -1,0 +1,20 @@
+{
+  "name": "wisedrops",
+  "version": "1.0.0",
+  "description": "A collection of inspirational or funny quotes",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "node.js",
+    "wisedrops",
+    "quotes"
+  ],
+  "author": "Marcos Frony <mfrony@yahoo.com>",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.11"
+  }
+}
