@@ -1,7 +1,8 @@
 'use strict';
 
 const _ = require('lodash');
-let wisedropsList = _.clone(require('../config/wisedrops.json'));
+const wisedropsList = _.clone(require('../config/wisedrops.json'));
+
 let wiseDropsArr = Object.assign({}, wisedropsList);
 
 function getRandomIndex(numOfWiseDrops) {
@@ -19,8 +20,10 @@ function selectWiseDrop() {
 }
 
 function getWiseDrop() {
-  const {author, wisdom} = selectWiseDrop();
-  console.log({author, wisdom});
+  const { author, wisdom } = selectWiseDrop();
+  /* eslint-disable no-console */
+  console.log(author);
+  console.log(wisdom);
   setTimeout(getWiseDrop, 10000);
 }
 
