@@ -3,20 +3,20 @@
 const _ = require('lodash');
 const wisedropsList = _.clone(require('../config/wisedrops.json'));
 
-let wiseDropsArr = Object.assign({}, wisedropsList);
+let wiseDropsArr = wisedropsList.slice();
 
 function getRandomIndex(numOfWiseDrops) {
-  return Math.floor((Math.random() * numOfWiseDrops) + 1);
+  return Math.floor(Math.random() * numOfWiseDrops);
 }
 
 function selectWiseDrop() {
   let numOfWiseDrops = wiseDropsArr.length;
-  if (numOfWiseDrops < 1) {
-    wiseDropsArr = Object.assign({}, wisedropsList);
-    numOfWiseDrops = wisedropsList.length;
+  if (!numOfWiseDrops || numOfWiseDrops < 1) {
+    wiseDropsArr = wisedropsList.slice();
+    numOfWiseDrops = wiseDropsArr.length;
   }
   const index = getRandomIndex(numOfWiseDrops);
-  return wisedropsList.pop(index);
+  return wiseDropsArr.splice(index, 1);
 }
 
 function getWiseDrop() {
