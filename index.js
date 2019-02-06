@@ -1,11 +1,8 @@
 'use strict';
 
-/**
- * Initializes wisedrops
- * @returns {{getAll: getAll, getCountry: getCountry, getSubdivision: getSubdivision}}
- */
-
 const _ = require('lodash');
+const drops = require('./src');
+
 let initialized;
 let wisedrops;
 
@@ -17,11 +14,11 @@ let wisedrops;
 module.exports = () => {
   if (!initialized) {
     initialized = true;
-    wisedrops = require('./src');
+    wisedrops = Object.assign({}, drops);
   }
 
   return {
-    getWiseDrop    : wisedrops.getWiseDrop,
-    selectWiseDrop : wisedrops.selectWiseDrop,
+    getWiseDrop: wisedrops.getWiseDrop,
+    selectWiseDrop: wisedrops.selectWiseDrop,
   };
 };

@@ -24,7 +24,7 @@ function getWiseDrop() {
   /* eslint-disable no-console */
   console.log(author);
   console.log(wisdom);
-  setTimeout(getWiseDrop, 10000);
+  setTimeout(selectWiseDrop, 10000);
 }
 
 module.exports = {
