@@ -1,5 +1,37 @@
 import { useState, useEffect } from 'react';
+import styled from 'styled-components';
+
 const quotes = require('./data/quotes.json');
+
+const Container = styled.div`
+	display: block;
+  width: 300px;
+  border: #000000 1px solid;
+  margin: 20px;
+`;
+
+const Title = styled.div`
+	height: 30px;
+  font-size: 20px;
+  background: blueviolet;
+  color: antiquewhite;
+  text-align: center;
+  padding: 10px;
+`;
+
+const Wisdom = styled.div`
+  font-size: 16px;
+  margin: 20px 10px
+`;
+
+const Author = styled.div`
+  font-size: 12px;
+  font-style: italic;
+  margin: 0 10px 20px;
+  //padding-top: 10px;
+  text-align: left;
+  //border-top: 1px solid #282c34;
+`;
 
 export const Wisedrops = () => {
   const [index, setIndex] = useState(0);
@@ -20,13 +52,13 @@ export const Wisedrops = () => {
     }
     setIndex(newIndex);
     setQuote(quotes[newIndex]);
-  }, 2000);
+  }, 5000);
   return (
-    <>
-      <h1>Wisedrops</h1>
-      <p>{index}</p>
-      <p>{ quote.wisdom }</p>
-      <p>{ quote.author }</p>
-    </>
+      <Container>
+        <Title>Wisedrops</Title>
+        {/*<p>{index}</p>*/}
+        <Wisdom>{ quote.wisdom }</Wisdom>
+        <Author>{ quote.author }</Author>
+      </Container>
   );
 };
