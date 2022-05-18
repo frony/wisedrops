@@ -16,8 +16,16 @@
     "author": "Jon Stewart"
   },
   {
+    "author": "John Olmstead",
+    "wisdom": "Every cheese has its age. Every age has its cheese"
+  },
+  {
     "wisdom": "You are the mashup of what you let into your life",
     "author": "Austin Kleon"
+  },
+  {
+    "wisdom": "Life is what happens to you while you're busy making other plans",
+    "author": "John Lennon"
   },
   {
     "wisdom": "The heart has reasons of which reason knows nothing",
@@ -44,7 +52,7 @@
     "author": "Annie Dillard"
   },
   {
-    "author": "skateboarder's grafitti",
+    "author": "skateboarder's graffiti",
     "wisdom": "You'll eat street before you taste victory."
   },
   {
@@ -64,10 +72,6 @@
     "wisdom": "You must be the change you want to see in the world."
   },
   {
-    "author": "John Olmstead",
-    "wisdom": "Every cheese has its age. Every age has its cheese"
-  },
-  {
     "author": "I-Ching",
     "wisdom": "Before the beginning of great brilliance and beauty there first must be a period of complete chaos."
   },
@@ -78,10 +82,6 @@
   {
     "author": "Michael Strahan",
     "wisdom": "Bravery and fear are the same feeling. It's just a matter of how you react to that same feeling."
-  },
-  {
-    "author": "Frank Zappa",
-    "wisdom": "Information is not knowledge;\nKnowledge is not wisdom,;<br />wisdom is not truth;\nTruth is not beauty;\nBeauty is not love;\nLove is not music;\nMusic is the best."
   },
   {
     "author": "John Waters",
@@ -98,6 +98,10 @@
   {
     "author": "Martin Luther King Jr.",
     "wisdom": "In the end, we will not remember the words of our enemies, but the silence of our friends."
+  },
+  {
+    "author": "Frank Zappa",
+    "wisdom": "Information is not knowledge. Knowledge is not wisdom. Wisdom is not truth. Truth is not beauty. Beauty is not love. Love is not music. Music is the best."
   },
   {
     "author": "Umberto Eco",

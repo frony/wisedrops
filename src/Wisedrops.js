@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 const quotes = require('./data/quotes.json');
+// const quotes = require('./data/bushisms.json');
 
+const MAX_LENGTH = quotes.length;
 const ANIMATION_INTERVAL = 10;
 
 const flickerAnimation = keyframes`
@@ -12,7 +14,8 @@ const flickerAnimation = keyframes`
 `;
 
 const Container = styled.div`
-	display: block;
+	display: flex;
+  flex-direction: column;
   width: 300px;
   border: #000000 1px solid;
   margin: 20px;
@@ -21,36 +24,40 @@ const Container = styled.div`
 
 const Title = styled.div`
 	height: 30px;
-  font-size: 20px;
+  font-size: 30px;
   background: blueviolet;
   color: antiquewhite;
   text-align: center;
   padding: 10px;
 `;
 
+const Panel = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 220px;
+  //border: red 1px solid;
+  align-items: baseline;
+`;
+
+const Wrapper = styled.div`
+  display: block;
+  width: 100%;
+  margin: auto;
+  //border: blue 2px solid;
+`;
+
 const Wisdom = styled.div`
-  font-size: 16px;
+  font-size: 18px;
   margin: 20px 10px;
   opacity:1;
   animation: ${flickerAnimation} ${ANIMATION_INTERVAL}s infinite;
 `;
 
 const Author = styled.div`
-  font-size: 12px;
+  font-size: 14px;
   font-style: italic;
   margin: 0 10px 20px;
   text-align: left;
-  opacity:1;
-  animation: ${flickerAnimation} ${ANIMATION_INTERVAL}s infinite;
-`;
-
-// const Panel = styled.div`
-//   display: inline-block;
-//   vertical-align: middle;
-//   border: red 1px solid;
-// `;
-
-const AnimateFlicker = styled.div`
   opacity:1;
   animation: ${flickerAnimation} ${ANIMATION_INTERVAL}s infinite;
 `;
@@ -60,29 +67,29 @@ export const Wisedrops = () => {
   const [quote, setQuote] = useState(quotes[0]);
 
   useEffect(() => {
-    setIndex(0);
-    setQuote(quotes[0]);
-  }, []);
+    const interval = setInterval(() => {
+      if (index < MAX_LENGTH - 1) {
+        setIndex(index => index + 1);
+        setQuote(quotes[index + 1]);
+      } else {
+        setIndex(0);
+        setQuote(quotes[0]);
+      }
+    }, 10 * 1000);
 
-  setInterval(() => {
-    let newIndex;
-    const maxLength = quotes.length - 1;
-    if (index < maxLength) {
-      newIndex = index + 1;
-    } else {
-      newIndex = 0;
-    }
-    setIndex(newIndex);
-    setQuote(quotes[newIndex]);
-  }, ANIMATION_INTERVAL * 1000);
+    return () => clearInterval(interval);
+  });
+
   return (
       <Container>
         <Title>Wisedrops</Title>
-        {/*<AnimateFlicker>{index}</AnimateFlicker>*/}
-        {/*<Panel>*/}
-          <Wisdom>{ quote.wisdom }</Wisdom>
-          <Author>{ quote.author }</Author>
-        {/*</Panel>*/}
+        {/*<p>{index}</p>*/}
+        <Panel>
+          <Wrapper>
+            <Wisdom>{ quote.wisdom }</Wisdom>
+            <Author>{ quote.author }</Author>
+          </Wrapper>
+        </Panel>
       </Container>
   );
 };
