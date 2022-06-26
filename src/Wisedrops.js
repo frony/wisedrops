@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 const quotes = require('./data/quotes.json');
+const wisedrops_array = require('./data/quotes.json');
 // const quotes = require('./data/bushisms.json');
 
-const MAX_LENGTH = quotes.length;
+// const MAX_LENGTH = quotes.length;
 const ANIMATION_INTERVAL = 10;
 
 const flickerAnimation = keyframes`
@@ -62,12 +63,37 @@ const Author = styled.div`
   animation: ${flickerAnimation} ${ANIMATION_INTERVAL}s infinite;
 `;
 
+const getRandomInt = (max) => {
+  return  Math.floor(Math.random() * max);
+};
+
+const usedIndexes = [];
+let totalIndexes = wisedrops_array.length;
+let index = getRandomInt(totalIndexes);
+
+const getIndex = () => {
+  while (usedIndexes.includes(index)) {
+    index =  getRandomInt(totalIndexes);
+  }
+  usedIndexes.push(index);
+  return index;
+};
+
 export const Wisedrops = () => {
   const [index, setIndex] = useState(0);
   const [quote, setQuote] = useState(quotes[0]);
 
+  /*const getIndex = () => {
+    let i = index;
+    while (usedIndexes.includes(i)) {
+      i =  getRandomInt(totalIndexes);
+    }
+    usedIndexes.push(index);
+    return i;
+  };*/
+
   useEffect(() => {
-    const interval = setInterval(() => {
+    /*const interval = setInterval(() => {
       if (index < MAX_LENGTH - 1) {
         setIndex(index => index + 1);
         setQuote(quotes[index + 1]);
@@ -75,7 +101,15 @@ export const Wisedrops = () => {
         setIndex(0);
         setQuote(quotes[0]);
       }
-    }, 10 * 1000);
+    }, 10 * 1000);*/
+
+    const interval = setInterval(() => {
+      const index = getIndex();
+      if (usedIndexes.length === wisedrops_array.length) {
+        usedIndexes.length = 0;
+      }
+      setQuote(quotes[index]);
+    }, ANIMATION_INTERVAL * 1000);
 
     return () => clearInterval(interval);
   });
@@ -83,7 +117,6 @@ export const Wisedrops = () => {
   return (
       <Container>
         <Title>Wisedrops</Title>
-        {/*<p>{index}</p>*/}
         <Panel>
           <Wrapper>
             <Wisdom>{ quote.wisdom }</Wisdom>
