@@ -1,8 +1,12 @@
 import { Wisedrops } from './Wisedrops';
+import { WisedropsRandom } from './WisedropsRandom';
 
 function App() {
   return (
-    <Wisedrops />
+    <>
+      <Wisedrops />
+      <WisedropsRandom />
+    </>
   );
 }
 

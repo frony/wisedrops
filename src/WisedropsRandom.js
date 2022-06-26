@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 
-const quotes = require('./data/quotes.json');
-// const quotes = require('./data/bushisms.json');
-
-const MAX_LENGTH = quotes.length;
+// const wisedropsArray = require('./data/bushisms.json');
+const wisedropsArray = require('./data/quotes.json');
 const ANIMATION_INTERVAL = 10;
 
 const flickerAnimation = keyframes`
@@ -23,9 +21,9 @@ const Container = styled.div`
 `;
 
 const Title = styled.div`
-	height: 30px;
+  height: 30px;
   font-size: 30px;
-  background: blueviolet;
+  background: #2ba8e2;
   color: antiquewhite;
   text-align: center;
   padding: 10px 10px 18px;
@@ -62,33 +60,47 @@ const Author = styled.div`
   animation: ${flickerAnimation} ${ANIMATION_INTERVAL}s infinite;
 `;
 
-export const Wisedrops = () => {
-  const [index, setIndex] = useState(0);
-  const [quote, setQuote] = useState(quotes[0]);
+const getRandomInt = (max) => {
+  return  Math.floor(Math.random() * max);
+};
+let totalIndexes = wisedropsArray.length;
 
+export const WisedropsRandom = () => {
+  // Display random quotes
+  const [index, setIndex] = useState(getRandomInt(totalIndexes));
+  useEffect(() => {
+    const i =  getRandomInt(totalIndexes);
+    setTimeout(() => {
+      setIndex(i);
+    }, ANIMATION_INTERVAL * 1000);
+  }, [index]);
+
+  // Display sequential quotes
+  /*const [index, setIndex] = useState(0);
+  const [quote, setQuote] = useState(wisedropsArray[0]);
   useEffect(() => {
     const interval = setInterval(() => {
-      if (index < MAX_LENGTH - 1) {
+      if (index < totalIndexes - 1) {
         setIndex(index => index + 1);
-        setQuote(quotes[index + 1]);
+        setQuote(wisedropsArray[index + 1]);
       } else {
         setIndex(0);
-        setQuote(quotes[0]);
+        setQuote(wisedropsArray[0]);
       }
     }, 10 * 1000);
 
     return () => clearInterval(interval);
-  });
+  });*/
 
   return (
-      <Container>
-        <Title>Wisedrops - In Order</Title>
-        <Panel>
-          <Wrapper>
-            <Wisdom>{ quote.wisdom }</Wisdom>
-            <Author>{ quote.author }</Author>
-          </Wrapper>
-        </Panel>
-      </Container>
+    <Container>
+      <Title>Wisedrops - Random</Title>
+      <Panel>
+        <Wrapper>
+          <Wisdom>{ wisedropsArray[index].wisdom }</Wisdom>
+          <Author>{ wisedropsArray[index].author }</Author>
+        </Wrapper>
+      </Panel>
+    </Container>
   );
 };
