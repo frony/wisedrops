@@ -94,7 +94,7 @@ export const WisedropsRandom = () => {
 
   return (
     <Container>
-      <Title>Wisedrops - Random</Title>
+      <Title>Wisedrops</Title>
       <Panel>
         <Wrapper>
           <Wisdom>{ wisedropsArray[index].wisdom }</Wisdom>

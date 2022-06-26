@@ -82,7 +82,7 @@ export const Wisedrops = () => {
 
   return (
       <Container>
-        <Title>Wisedrops - In Order</Title>
+        <Title>Wisedrops</Title>
         <Panel>
           <Wrapper>
             <Wisdom>{ quote.wisdom }</Wisdom>
