@@ -3,9 +3,6 @@ import styled, { keyframes } from 'styled-components';
 
 const quotes = require('./data/quotes.json');
 const wisedrops_array = require('./data/quotes.json');
-// const quotes = require('./data/bushisms.json');
-
-// const MAX_LENGTH = quotes.length;
 const ANIMATION_INTERVAL = 10;
 
 const flickerAnimation = keyframes`
@@ -24,12 +21,12 @@ const Container = styled.div`
 `;
 
 const Title = styled.div`
-	height: 30px;
+  height: 30px;
   font-size: 30px;
-  background: blueviolet;
+  background: #2ba8e2;
   color: antiquewhite;
   text-align: center;
-  padding: 10px;
+  padding: 10px 10px 18px;
 `;
 
 const Panel = styled.div`
@@ -69,46 +66,28 @@ const getRandomInt = (max) => {
 
 const usedIndexes = [];
 let totalIndexes = wisedrops_array.length;
-let index = getRandomInt(totalIndexes);
-
-const getIndex = () => {
-  while (usedIndexes.includes(index)) {
-    index =  getRandomInt(totalIndexes);
-  }
-  usedIndexes.push(index);
-  return index;
-};
 
 export const Wisedrops = () => {
-  const [index, setIndex] = useState(0);
-  const [quote, setQuote] = useState(quotes[0]);
+  const [index, setIndex] = useState(getRandomInt(totalIndexes));
+  const [quote, setQuote] = useState(quotes[index]);
 
-  /*const getIndex = () => {
-    let i = index;
+  const getIndex = (init) => {
+    let i = init;
     while (usedIndexes.includes(i)) {
       i =  getRandomInt(totalIndexes);
     }
-    usedIndexes.push(index);
+    usedIndexes.push(i);
+    setIndex(i);
     return i;
-  };*/
+  };
 
   useEffect(() => {
-    /*const interval = setInterval(() => {
-      if (index < MAX_LENGTH - 1) {
-        setIndex(index => index + 1);
-        setQuote(quotes[index + 1]);
-      } else {
-        setIndex(0);
-        setQuote(quotes[0]);
-      }
-    }, 10 * 1000);*/
-
     const interval = setInterval(() => {
-      const index = getIndex();
+      const i = getIndex(index);
       if (usedIndexes.length === wisedrops_array.length) {
         usedIndexes.length = 0;
       }
-      setQuote(quotes[index]);
+      setQuote(quotes[i]);
     }, ANIMATION_INTERVAL * 1000);
 
     return () => clearInterval(interval);
