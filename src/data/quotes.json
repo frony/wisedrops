@@ -1,5 +1,9 @@
 [
   {
+    "wisdom": "Grief is the price we pay for love",
+    "author": "Queen Elizabeth II"
+  },
+  {
     "wisdom": "The treasure you want is in the cave you are afraid to go",
     "author": "Joseph Campbell"
   },
@@ -22,6 +26,10 @@
   {
     "wisdom": "You are the mashup of what you let into your life",
     "author": "Austin Kleon"
+  },
+  {
+    "author": "Dashaun Connor'",
+    "wisdom": "Good girls can be found in all corners of the Earth. BUT unfortunately the Earth is round."
   },
   {
     "wisdom": "Life is what happens to you while you're busy making other plans",
@@ -186,5 +194,9 @@
   {
     "author": "Michael A. Singer, in 'The Untethered Soul'",
     "wisdom": "There is nothing more important to true growth than realizing that you are not the voice of your mind - you are the one who hears it."
+  },
+  {
+    "author": "Tamara Levitt'",
+    "wisdom": "Life is not measured by the number of breaths we take, but by the moments that take our breath away."
   }
 ]
