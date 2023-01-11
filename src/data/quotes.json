@@ -1,9 +1,5 @@
 [
   {
-    "wisdom": "Grief is the price we pay for love",
-    "author": "Queen Elizabeth II"
-  },
-  {
     "wisdom": "The treasure you want is in the cave you are afraid to go",
     "author": "Joseph Campbell"
   },
@@ -14,6 +10,10 @@
   {
     "author": "Richard Pryor",
     "wisdom": "I was never a good fighter, man... but I had a cool run!"
+  },
+  {
+    "author": "Mark Twain",
+    "wisdom": "It ain’t what you don’t know that gets you into trouble. It’s what you know for sure that just ain’t so."
   },
   {
     "wisdom": "Carbon is the slut of the elements periodic table",
@@ -130,6 +130,10 @@
   {
     "author": "Tim Fargo",
     "wisdom": "I believe that what we become depends on what our fathers teach us at odd moments, when they aren’t trying to teach us. We are formed by little scraps of wisdom."
+  },
+  {
+    "wisdom": "Grief is the price we pay for love",
+    "author": "Queen Elizabeth II"
   },
   {
     "author": "Unknown",
